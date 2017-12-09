@@ -6,3 +6,22 @@ repositories {
     mavenLocal()
     mavenCentral()
 }
+dependencies {
+  compile 'junit:junit:4.12'
+}
+subprojects {
+    //Put instructions for each sub project
+    apply plugin: "java"
+    repositories {
+        mavenCentral()
+        mavenLocal()
+    }
+    dependencies {
+        testCompile group: 'junit', name: 'junit', version: '4.+'
+    }
+}
+test {
+    testLogging {
+        showStandardStreams = true
+    }
+}
